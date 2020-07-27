@@ -1,0 +1,65 @@
+//file One: files, stream, people, modules
+//files:
+
+const fs = require("fs");
+
+/*
+to read a file:
+read a file and then
+sends data back
+*/
+
+//reading file one
+fs.readFile("./Docs/random.txt", (err, data) => {
+	if(err) {
+		console.log(err);
+	}
+	console.log(data);
+});
+
+//reading file two
+fs.readFile("./Docs/random2.txt", (err, data) => {
+	if(err) {
+		console.log(err);
+	}
+	console.log(data);
+});
+
+
+//writing/making files
+fs.writeFile("./Docs/random3.txt", "testing file", () => {
+	console.log("File has been written");
+});	 
+
+fs.writeFile("./Docs/random4.txt", "fourth testing file", () => {
+	console.log("File has been made");
+});
+
+
+//directories
+if(!fs.existsSync("./TestingArea")) { //checks if that folder does not exists
+	fs.mkdir("./TestingArea", err => {
+		if(err) {
+			console.log(err);
+		}
+		console.log("Folder Created"); 
+	});
+	//else if that folder does exist then remove that directory
+} else { 
+	fs.rmdir("./TestingArea", err => {
+		if(err) {
+			console.log(err);
+		}
+		console.log("Foldeer Deleted");
+	});
+}
+
+//deleting files
+if(fs.existsSync("./Docs/random5.txt")) {
+	fs.unlink("./Docs/random5.txt", err => {
+		if(err) {
+			console.log(err);
+		}
+		console.log("Fuke Deketed");
+	});
+}
