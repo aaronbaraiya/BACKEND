@@ -63,3 +63,19 @@ if(fs.existsSync("./Docs/random5.txt")) {
 		console.log("Fuke Deketed");
 	});
 }
+
+
+
+//file One: files, stream, people, modules
+//streams:
+
+const fs = require("fs");
+
+//this line opens it up as a readable stream
+const readStream = fs.createReadStream("./Docs/random.txt", { encoding: "utf8" });
+const writeStream = fs.createWriteStream("./Docs/random2.txt");
+
+readStream.on("data", chunk) => {
+	writeStream.write("\nNEW CHUNK:\n");
+	writeStream.write(chunk);
+});
