@@ -79,3 +79,27 @@ readStream.on("data", chunk) => {
 	writeStream.write("\nNEW CHUNK:\n");
 	writeStream.write(chunk);
 });
+
+
+//file One: files, stream, people, modules
+//people:
+
+const objects = ["obj", "obj2", "obj3"];
+const numbers = [1, 2, 3, 4, 5];
+
+module.exports = {
+	objects,
+	numbers
+};
+
+
+
+//modules: compatiable with test
+
+const { objects, numbers } = require("./test");
+
+console.log(objects, numbers);
+
+const os = require("os");
+
+console.log(os.platform(), os.homedir());
