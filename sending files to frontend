@@ -1,0 +1,26 @@
+const express = require("express");
+const app = express();
+
+app.listen(3000);
+
+
+//sending files to the front end
+app.get("/", (req, res) => {
+    res.sendFile("./views/homepage.html", { root: __dirname });
+});
+
+app.get("/home", (req, res) => {
+    res.redirect("/");
+});
+
+app.get("/about", (req, res) => {
+    res.sendFile("./views/about.html", { root: __dirname });
+}); 
+
+app.get("/other", (req, res) => {
+    res.sendFile("./views/other.html", { root: __dirname });
+});
+
+app.get("/support", (req, res) => {
+    res.sendFile("./views/support.html", { root: __dirname });
+});
